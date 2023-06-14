@@ -1,8 +1,8 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP TABLE IF EXISTS `final__2022_10_08__dev`.`batch_job_execution`;
+DROP TABLE IF EXISTS `mbooks__dev`.`batch_job_execution`;
 
-CREATE TABLE `final__2022_10_08__dev`.`batch_job_execution` (
+CREATE TABLE `mbooks__dev`.`batch_job_execution` (
     `JOB_EXECUTION_ID` BIGINT(20) NOT NULL,
     `VERSION` BIGINT(20) DEFAULT NULL,
     `JOB_INSTANCE_ID` BIGINT(20) NOT NULL,
@@ -18,9 +18,9 @@ CREATE TABLE `final__2022_10_08__dev`.`batch_job_execution` (
     CONSTRAINT `JOB_INST_EXEC_FK` FOREIGN KEY (`JOB_INSTANCE_ID`) REFERENCES `batch_job_instance` (`JOB_INSTANCE_ID`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `final__2022_10_08__dev`.`batch_job_execution_context`;
+DROP TABLE IF EXISTS `mbooks__dev`.`batch_job_execution_context`;
 
-CREATE TABLE `final__2022_10_08__dev`.`batch_job_execution_context` (
+CREATE TABLE `mbooks__dev`.`batch_job_execution_context` (
     `JOB_EXECUTION_ID` BIGINT(20) NOT NULL,
     `SHORT_CONTEXT` VARCHAR(2500) NOT NULL,
     `SERIALIZED_CONTEXT` TEXT DEFAULT NULL,
@@ -28,9 +28,9 @@ CREATE TABLE `final__2022_10_08__dev`.`batch_job_execution_context` (
     CONSTRAINT `JOB_EXEC_CTX_FK` FOREIGN KEY (`JOB_EXECUTION_ID`) REFERENCES `batch_job_execution` (`JOB_EXECUTION_ID`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `final__2022_10_08__dev`.`batch_job_execution_params`;
+DROP TABLE IF EXISTS `mbooks__dev`.`batch_job_execution_params`;
 
-CREATE TABLE `final__2022_10_08__dev`.`batch_job_execution_params` (
+CREATE TABLE `mbooks__dev`.`batch_job_execution_params` (
     `JOB_EXECUTION_ID` BIGINT(20) NOT NULL,
     `PARAMETER_NAME` VARCHAR(100) NOT NULL,
     `PARAMETER_TYPE` VARCHAR(100) NOT NULL,
@@ -40,9 +40,9 @@ CREATE TABLE `final__2022_10_08__dev`.`batch_job_execution_params` (
     CONSTRAINT `JOB_EXEC_PARAMS_FK` FOREIGN KEY (`JOB_EXECUTION_ID`) REFERENCES `batch_job_execution` (`JOB_EXECUTION_ID`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `final__2022_10_08__dev`.`batch_job_instance`;
+DROP TABLE IF EXISTS `mbooks__dev`.`batch_job_instance`;
 
-CREATE TABLE `final__2022_10_08__dev`.`batch_job_instance` (
+CREATE TABLE `mbooks__dev`.`batch_job_instance` (
     `JOB_INSTANCE_ID` BIGINT(20) NOT NULL,
     `VERSION` BIGINT(20) DEFAULT NULL,
     `JOB_NAME` VARCHAR(100) NOT NULL,
@@ -51,9 +51,9 @@ CREATE TABLE `final__2022_10_08__dev`.`batch_job_instance` (
     UNIQUE KEY `JOB_INST_UN` (`JOB_NAME`,`JOB_KEY`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `final__2022_10_08__dev`.`batch_step_execution`;
+DROP TABLE IF EXISTS `mbooks__dev`.`batch_step_execution`;
 
-CREATE TABLE `final__2022_10_08__dev`.`batch_step_execution` (
+CREATE TABLE `mbooks__dev`.`batch_step_execution` (
     `STEP_EXECUTION_ID` BIGINT(20) NOT NULL,
     `VERSION` BIGINT(20) NOT NULL,
     `STEP_NAME` VARCHAR(100) NOT NULL,
@@ -78,9 +78,9 @@ CREATE TABLE `final__2022_10_08__dev`.`batch_step_execution` (
     CONSTRAINT `JOB_EXEC_STEP_FK` FOREIGN KEY (`JOB_EXECUTION_ID`) REFERENCES `batch_job_execution` (`JOB_EXECUTION_ID`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `final__2022_10_08__dev`.`batch_step_execution_context`;
+DROP TABLE IF EXISTS `mbooks__dev`.`batch_step_execution_context`;
 
-CREATE TABLE `final__2022_10_08__dev`.`batch_step_execution_context` (
+CREATE TABLE `mbooks__dev`.`batch_step_execution_context` (
     `STEP_EXECUTION_ID` BIGINT(20) NOT NULL,
     `SHORT_CONTEXT` VARCHAR(2500) NOT NULL,
     `SERIALIZED_CONTEXT` TEXT DEFAULT NULL,

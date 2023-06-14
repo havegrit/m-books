@@ -36,7 +36,7 @@ jpa:
   defer-datasource-initialization:logging:
   level:
     root: INFO
-    com.ll.exam.final__2022_10_08.app: DEBUG
+    com.ll.mbooks.app: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
     org.hibernate.orm.jdbc.extract: TRACE
 custom:
